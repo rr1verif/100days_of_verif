@@ -1,6 +1,11 @@
 //Add code here
 class mux_sequence extends uvm_sequence_item;
 
+   rand logic[7:0] input1;
+   rand logic[7:0] input2;
+   rand logic       sel1;
+   
+
   //Add factory code
   `uvm_object_utils(mux_sequence)
   
