@@ -1,0 +1,14 @@
+//Add code here
+class mux_sequence extends uvm_sequence_item;
+
+  //Add factory code
+  `uvm_object_utils(mux_sequence)
+  
+  //Add new constructor
+  function new (string name = "mux_sequence");
+    super.new(name);
+  endfunction
+  
+  //Add constraints
+  
+  endclass mux_sequence
