@@ -1,0 +1,23 @@
+//UVM phases and usecase
+  1. Build 
+  2. Connect
+  3. End of elaboration
+  4. Start of simulation
+  5. Run 
+    a. pre_reset
+    b. Reset
+    c. post_reset
+    d. pre_configure
+    e. Configure
+    f. post_configure
+    g. pre_main
+    h. Main
+    i. post_main
+    j. pre_shutdown
+    k. Shutdown
+    l. post_shutdown
+  6. Extract
+  7. Check
+  8. Report
+  9. Final
+  
