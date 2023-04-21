@@ -1,0 +1,34 @@
+//UVM phases and usecase
+  1. Build 
+  2. Connect
+  3. End of elaboration
+  4. Start of simulation
+  5. Run 
+    a. pre_reset
+    b. Reset
+    c. post_reset
+    d. pre_configure
+    e. Configure
+    f. post_configure
+    g. pre_main
+    h. Main
+    i. post_main
+    j. pre_shutdown
+    k. Shutdown
+    l. post_shutdown
+  6. Extract
+  7. Check
+  8. Report
+  9. Final
+  
+  In tb_top.sv run_test() is called to start the uvm_phase
+  At t =0 The first 4 phase get executed 1 after the other.
+  Now run_phase starts. And let say the complete simulation takes 10,000ns
+  At 10,00ns the remaining 4 phases get executed.
+  
+  In our tb we may use different calculation across different files but since the use case of uvm phases is to have common synchronization across our env.
+  We can also use Phase objection.raised and dropped to wait for a specific code to complete and letting uvm phase to reach next state.
+  
+  A task is time consuming whereas a function gets executed in 0 time
+  
+  
