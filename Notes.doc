@@ -1,5 +1,5 @@
 //UVM phases and usecase
-  1. Build 
+  1. Build - Build_phase is used to construct sub-components right from Testcase
   2. Connect
   3. End of elaboration
   4. Start of simulation
