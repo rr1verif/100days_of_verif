@@ -39,3 +39,8 @@
   
   What is phase domains or jumping - With the use of phase domain, each component can complete independent of other components. No synchronization is required.
   
+  UVM_INFO format- UVM_INFO file_path/filepath/line-num time scope id "message"
+
+  TLM stands for Transaction Level Modeling. TLM promotes reuse as they have same interface
+  
+  
