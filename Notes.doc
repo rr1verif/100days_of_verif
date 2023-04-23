@@ -43,4 +43,13 @@
 
   TLM stands for Transaction Level Modeling. TLM promotes reuse as they have same interface
   
+  uvm_config_db #(int )::set(this, "*", "fw_cfg", fw_cfg);
+  
+  if(!uvm_config_db#(int)::get(this,"", "fw_cfg", fw_cfg1);
+    `uvm_fatal("FATAL", "Didn't get fw_cfg variable")
+  
+  uvm_config_db#(class test_sequence)::set(this, "*", "sequence_test" test_seq);
+  
+  
+  uvm_config_db::set(this,"*","comp_with_no_param", test_comp_param);
   
