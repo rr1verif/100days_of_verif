@@ -1,9 +1,9 @@
 //UVM phases and usecase
-  1. Build - Build_phase is used to construct sub-components right from Testcase
-  2. Connect
-  3. End of elaboration
-  4. Start of simulation
-  5. Run 
+  1. Build - Build_phase is built by top-down approach. It is used to construct sub-components right from Testcase
+  2. Connect - Connect phase is built in bottom-up approach.
+  3. End of elaboration - This phase also executes in bottom-up approach.
+  4. Start of simulation - This phase also executes in bottom-up approach.
+  5. Run - It is time consuming task. Run task are executed in parallel. Drivers & monitors should just use run_phase.
     a. pre_reset
     b. Reset
     c. post_reset
@@ -25,10 +25,12 @@
   At t =0 The first 4 phase get executed 1 after the other.
   Now run_phase starts. And let say the complete simulation takes 10,000ns
   At 10,00ns the remaining 4 phases get executed.
+ 
+    
   
   In our tb we may use different calculation across different files but since the use case of uvm phases is to have common synchronization across our env.
   We can also use Phase objection.raised and dropped to wait for a specific code to complete and letting uvm phase to reach next state.
   
   A task is time consuming whereas a function gets executed in 0 time
   
-  
+  //What is phase domains or jumping
