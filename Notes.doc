@@ -43,13 +43,20 @@
 
   TLM stands for Transaction Level Modeling. TLM promotes reuse as they have same interface
   
+  //Config db set and get
   uvm_config_db #(int )::set(this, "*", "fw_cfg", fw_cfg);
-  
+ 
   if(!uvm_config_db#(int)::get(this,"", "fw_cfg", fw_cfg1);
     `uvm_fatal("FATAL", "Didn't get fw_cfg variable")
   
+  //Config fb set and get when component has a paarmeter of type class
   uvm_config_db#(class test_sequence)::set(this, "*", "sequence_test" test_seq);
   
   
+  
+  //Config fb set and get when component has no parameter
   uvm_config_db::set(this,"*","comp_with_no_param", test_comp_param);
   
+  
+  
+  //Config db set and get in case of virtual interface
