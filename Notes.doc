@@ -25,12 +25,16 @@
   At t =0 The first 4 phase get executed 1 after the other.
   Now run_phase starts. And let say the complete simulation takes 10,000ns
   At 10,00ns the remaining 4 phases get executed.
- 
-    
   
   In our tb we may use different calculation across different files but since the use case of uvm phases is to have common synchronization across our env.
   We can also use Phase objection.raised and dropped to wait for a specific code to complete and letting uvm phase to reach next state.
-  
+  Components and Objects can raise and drop objections. It remains in the same phase till all the objections are dropped
+  For Components - 
+    Phase.raise_objection(this);
+    Phase.drop_objection(this);
+  For Objects -
+    Starting_phase.raise_objection(this);
+    Starting_phase.drop_objection(this);
   A task is time consuming whereas a function gets executed in 0 time
   
   What is phase domains or jumping - With the use of phase domain, each component can complete independent of other components. No synchronization is required.
