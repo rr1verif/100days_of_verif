@@ -16,10 +16,10 @@
     j. pre_shutdown
     k. Shutdown
     l. post_shutdown
-  6. Extract
-  7. Check
-  8. Report
-  9. Final
+  6. Extract -  Follows bottom-up approach. It retrieves and processes information from scoreboards and functional coverage monitors.
+  7. Check - Follows bottom-up approach. It checks if the DUT behaved correctly and identifies errors that may have occurred during the execution.
+  8. Report - Follows bottom-up approach. It displays the result of the simulation.
+  9. Final - Follows top-down approach. It completes any other outstanding actions.
   
   In tb_top.sv run_test() is called to start the uvm_phase
   At t =0 The first 4 phase get executed 1 after the other.
@@ -33,4 +33,5 @@
   
   A task is time consuming whereas a function gets executed in 0 time
   
-  //What is phase domains or jumping
+  What is phase domains or jumping - With the use of phase domain, each component can complete independent of other components. No synchronization is required.
+  
