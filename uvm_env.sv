@@ -14,6 +14,9 @@ class uvm_test_env extends uvm_env;
   function void connect_phase (uvm_phase phase);
     super.connect_phase(phase);
     //Add connection here
+    //Create an object of uvm_test_mon, uvm_test_chkr
+    test_mon.mon_to_chkr.connect(test_chkr.from_mon_to_chkr); //Analysis port to import connection
+    test_mon.mon_to_chkr.connect(test_chkr.from_mon_to_chkr_fifo.analysis_export);      //Analysis port to tlm fifo connection
   endfunction
   
   task run_phase (uvm_phase phase);
