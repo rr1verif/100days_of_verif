@@ -1,11 +1,11 @@
-class test_mon extends uvm_monitor;
+class uvm_test_mon extends uvm_monitor;
   
   `uvm_ananlysis_port #(mux_sequence) mon_to_chkr;
   //Factory
-  `uvm_components_utils(test_mon);
+  `uvm_components_utils(uvm_test_mon);
   
   //New constructor
-  function new (string name = "test_mon" , uvm_component parent = null);
+  function new (string name = "uvm_test_mon" , uvm_component parent = null);
     super.new(name,parent);
     //Create analysis port handle
     mon_to_chkr = new("analysis_port", this);
