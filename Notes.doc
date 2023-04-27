@@ -1,3 +1,9 @@
+While defining new constructor for classes extended from uvm_transaction/uvm_sequence_item we don't need to add uvm_component parent = null &
+super.new(name , parent) instead string name = "name" & super.new(name) while defining the constructor will be fine.
+
+Also in the checker if I am defining some analysis import - then try to define it like "from_analysis_port_name". This will give idea about from where the transactor
+or packet is coming rather than explicitly checking in the env file.
+
 //UVM phases and usecase
   1. Build - Build_phase is built by top-down approach. It is used to construct sub-components right from Testcase
   2. Connect - Connect phase is built in bottom-up approach.
