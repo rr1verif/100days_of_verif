@@ -1,5 +1,6 @@
 class test_mon extends uvm_monitor;
   
+  `uvm_ananlysis_port#(mux_sequence) to_drv_from_mon;
   //Factory
   `uvm_components_utils(test_mon);
   
