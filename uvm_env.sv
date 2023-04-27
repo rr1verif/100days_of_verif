@@ -16,7 +16,7 @@ class uvm_test_env extends uvm_env;
     //Add connection here
   endfunction
   
-  task run_phase (uvm_phase phase)
+  task run_phase (uvm_phase phase);
     //Add Simulation related code here
   endtask
   
