@@ -10,6 +10,12 @@ class mux_sequence extends uvm_sequence_item;
 
   //Add factory code
   `uvm_object_utils(mux_sequence)
+   
+   `uvm_object_utils_begin()
+      `uvm_field_logic(input1, UVM_DEFAULT)
+      `uvm_field_logic(input2, UVM_ALL_ON)
+      `uvm_field_logic(sel1,   UVM_NO_COMPARE)
+   `uvm_component_utils_end()
   
   //Add new constructor
   function new (string name = "mux_sequence");
