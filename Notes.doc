@@ -1,5 +1,6 @@
 While defining new constructor for classes extended from uvm_transaction/uvm_sequence_item we don't need to add uvm_component parent = null &
 super.new(name , parent) instead string name = "name" & super.new(name) while defining the constructor will be fine.
+If we are having parameter based class extended from any one of the uvm_class then we must use uvm_component_param_utils() & uvm_object_param_utils()
 
 Also in the checker if I am defining some analysis import - then try to define it like "from_analysis_port_name". This will give idea about from where the transactor
 or packet is coming rather than explicitly checking in the env file.
