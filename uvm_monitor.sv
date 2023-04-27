@@ -8,7 +8,7 @@ class test_mon extends uvm_monitor;
   function new (string name = "test_mon" , uvm_component parent = null);
     super.new(name,parent);
     //Create analysis port handle
-    ap = new("analysis_port", this);
+    mon_to_chkr = new("analysis_port", this);
   endfunction 
   
   //Logic for run_phase
@@ -25,7 +25,7 @@ class test_mon extends uvm_monitor;
         mux_seq_1.input2 = vif.input2;
         mux_seq_1.sel1   = vif.sel1;
         //Call the write function and push the packet
-        ap.write(mux_seq_1);
+        mon_to_chkr.write(mux_seq_1);
         `uvm_info(get_type_name(),$sformatf("Packet written to checker is %p", mux _seq_1),UVM_LOW);
       end //}
     end //}
