@@ -4,6 +4,9 @@ super.new(name , parent) instead string name = "name" & super.new(name) while de
 Also in the checker if I am defining some analysis import - then try to define it like "from_analysis_port_name". This will give idea about from where the transactor
 or packet is coming rather than explicitly checking in the env file.
 
+When to use new and when to use create for new object creation ?
+Ans - 
+
 //UVM phases and usecase
   1. Build - Build_phase is built by top-down approach. It is used to construct sub-components right from Testcase
   2. Connect - Connect phase is built in bottom-up approach.
