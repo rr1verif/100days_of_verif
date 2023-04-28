@@ -65,7 +65,7 @@ design team & verif team. Atleast common, vimrc file should be there for common 
   //Config db set and get
   uvm_config_db #(int )::set(this, "*", "fw_cfg", fw_cfg);
  
-  if(!uvm_config_db#(int)::get(this,"", "fw_cfg", fw_cfg1);
+  if(!uvm_config_db #(int)::get(this,"", "fw_cfg", fw_cfg1);
     `uvm_fatal("FATAL", "Didn't get fw_cfg variable")
   
   //Config fb set and get when component has a paarmeter of type class
