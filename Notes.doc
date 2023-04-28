@@ -62,23 +62,25 @@ design team & verif team. Atleast common, vimrc file should be there for common 
 
   TLM stands for Transaction Level Modeling. TLM promotes reuse as they have same interface
   
-  //Config db set and get
+//Config db set and get - While getting the handle into the new handle we have to instantiate the new handle. 
+Also the get uses the string which was used at the time of set function to allocate the configuration to the new object.
   uvm_config_db #(int)::set(this, "*", "fw_cfg", fw_cfg);
  
   if(!uvm_config_db #(int)::get(this,"", "fw_cfg", fw_cfg1);
     `uvm_fatal("FATAL", "Didn't get fw_cfg variable")
   
-  //Config fb set and get when component has a paarmeter of type class
-  uvm_config_db#(class test_sequence)::set(this, "*", "sequence_test" test_seq);
+//Config db set and get when component has a paarmeter of type class
+  uvm_config_db #(class test_sequence)::set(this, "*", "sequence_test" test_seq);
+  uvm_config_db #(test_sequence)::get(this,"","sequence_test", test_seq_get);
   
-  
-  
-  //Config fb set and get when component has no parameter
+//Config db set and get when component has no parameter
   uvm_config_db::set(this,"*","comp_with_no_param", test_comp_param);
-  
+  uvm_config_db::get(this,"","comp_with_no_param",test_param_get);
   
   
   //Config db set and get in case of virtual interface
+  uvm_config_db(virtual uvm_test_if)::set(null,"*", "uvm_test_if", uvm_test_if)
+  uvm_config_db(virtaul uvm_test_if)::get(this,"","uvm_test_if",test_if);
   
   
   Configurable Parameters
