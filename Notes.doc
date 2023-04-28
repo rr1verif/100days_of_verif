@@ -79,3 +79,12 @@ design team & verif team. Atleast common, vimrc file should be there for common 
   
   
   //Config db set and get in case of virtual interface
+  
+  
+  Configurable Parameters
+    Structure of a testbench – pre-runtime
+    Number of agents, active/passive agent
+    Virtual interface connection
+    Stimulus for the test - Changed during runtime
+    changing the verbosity of the messages
+    constraint expression values, coverage bin values
