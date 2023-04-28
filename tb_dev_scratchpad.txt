@@ -1,0 +1,8 @@
+28/04/23
+  Thinking of adding another analysis port in the env file for getting the output signal. 
+  Where should I add the code for it. It should be in a fork join with other code as we need all the outputs
+  at all times.
+  
+  Since we are coding the analysis port write during run_phase, will it have any timing issue. Will the write part in the code 
+  consume any time whereas pushing the seq to dut would be done in 0 time resulting in miscalculation of outputs at future time.
+  
