@@ -43,7 +43,14 @@ design team & verif team. Atleast common, vimrc file should be there for common 
   In tb_top.sv run_test() is called to start the uvm_phase
   At t =0 The first 4 phase get executed 1 after the other.
   Now run_phase starts. And let say the complete simulation takes 10,000ns
-  At 10,00ns the remaining 4 phases get executed.
+  At 10,00ns the remaining 4 phases get executed. All phase are type function excvept run
+  
+  function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
+  endfunction
+  
+  task run_phase();
+  endtask
   
   In our tb we may use different calculation across different files but since the use case of uvm phases is to have common synchronization across our env.
   We can also use Phase objection.raised and dropped to wait for a specific code to complete and letting uvm phase to reach next state.
@@ -81,7 +88,6 @@ Also the get uses the string which was used at the time of set function to alloc
   //Config db set and get in case of virtual interface
   uvm_config_db(virtual uvm_test_if)::set(null,"*", "uvm_test_if", uvm_test_if)
   uvm_config_db(virtaul uvm_test_if)::get(this,"","uvm_test_if",test_if);
-  
   
   Configurable Parameters
     Structure of a testbench – pre-runtime
