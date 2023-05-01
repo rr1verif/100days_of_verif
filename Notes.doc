@@ -74,6 +74,8 @@ design team & verif team. Atleast common, vimrc file should be there for common 
 
   TLM stands for Transaction Level Modeling. TLM promotes reuse as they have same interface
   
+  Multiple sequences would be trying to send sequence_item to driver. Sequencer arbitrates between them.
+  
 //Config db set and get - While getting the handle into the new handle we have to instantiate the new handle. 
 Also the get uses the string which was used at the time of set function to allocate the configuration to the new object.
   uvm_config_db #(int)::set(this, "*", "fw_cfg", fw_cfg);
