@@ -12,7 +12,9 @@ Q. Can we connect ports & imports in build phase or should we do that only in co
 Ans -
 
 Q. How to print UVM hirerachy of an object/component?
-Ans -
+Ans - print_topology()
+
+Q. What is the difference between tlm port - exports & analysis_port - imports? Explain the connection with example.
 
 Q. When to use uvm_sequence_item, uvm_object, uvm_transactions in UVM?
 Ans - 
