@@ -14,6 +14,9 @@ Ans -
 Q. How to print UVM hirerachy of an object/component?
 Ans -
 
+Q. When to use uvm_sequence_item, uvm_object, uvm_transactions in UVM?
+Ans - 
+
 Check Synopsys Euclid (ide) can I clone my tb and run the testcase in that env? 27/04/23. If I can then SSIR should as well use this for both
 design team & verif team. Atleast common, vimrc file should be there for common indent and standard coding style
 
@@ -49,7 +52,7 @@ design team & verif team. Atleast common, vimrc file should be there for common 
     super.build_phase(phase);
   endfunction
   
-  task run_phase();
+  task run_phase(uvm_phase phase);
   endtask
   
   In our tb we may use different calculation across different files but since the use case of uvm phases is to have common synchronization across our env.
