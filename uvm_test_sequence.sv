@@ -11,7 +11,14 @@ class mux_sequence #(mux_sequence_item) extends uvm_sequence;
   endfunction
   
   virtual task start (uvm_test_sequencer seqr);
-    mux_sequence_item.start(env_o.mux_agent.seqr); //mux_agent is a object of uvm_test_agent
+    mux_sequence_item1.start(env_o.mux_agent.seqr); //mux_agent is a object of uvm_test_agent
+  endtask
+  
+  task body();
+    mux_sequence_item1 = mux_sequence_item::type_id::create_id("mux_sequence_item1");
+    start_item(mux_sequence_item);
+    mux_sequence_item1.randomize();
+    finish_item(mux_sequence_item1);
   endtask
   
 endclass
