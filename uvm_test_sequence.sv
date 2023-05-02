@@ -10,7 +10,8 @@ class mux_sequence #(mux_sequence_item) extends uvm_sequence;
     super.build_phase(phase);
   endfunction
   
-  virtual task start
+  virtual task start (uvm_test_sequencer seqr);
+    mux_sequence_item.start(env_o.mux_agent.seqr); //mux_agent is a object of uvm_test_agent
   endtask
   
 endclass
