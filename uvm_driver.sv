@@ -1,8 +1,8 @@
-class uvm_test_driver extends uvm_driver #(mux_sequence);
+class uvm_test_driver extends uvm_driver #(mux_sequence_item);
   //Fatory
   `uvm_components_utils(uvm_test_driver);
   uvm_test_if vif_drv;
-  mux_sequence mux_sequence_drv;
+  mux_sequence_item mux_sequence_drv;
   
   //New constructor
   function new (string name = "uvm_test_driver", uvm_component parent = null);
