@@ -1,0 +1,10 @@
+1. constraints
+2. solve before 
+3. arrays and its methods
+4. queues
+5. fc coding bins
+6. enum
+7. loops
+8. fork join
+9. interprocess communication, semaphores
+10. casting & :: operator
