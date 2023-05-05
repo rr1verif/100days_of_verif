@@ -8,3 +8,29 @@
 8. fork join
 9. interprocess communication, semaphores
 10. casting & :: operator
+
+
+
+class test_1;
+  rand bit[2:0] x;
+  randc bit[2:0] y;
+endclass;
+
+module top;
+  test_1 t;
+  initial begin //{
+    t = new();
+    repeat (8) begin //{
+      t.x.rand_mode(0);
+      t.randomize();
+      t.x.rand_mode(0);
+      $display("xis %0d & y is %0d", t.x, t.y);
+    end //}
+  end //}
+endmodule
+
+The initial state of reg is x unknown, wire is z.
+
+to define a variable of type time
+time t;
+t = $realtime(); //to assign the simulation time to variable
