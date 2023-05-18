@@ -108,7 +108,7 @@ Also the get uses the string which was used at the time of set function to alloc
     
     There are 4 reporting mechanism in UVM viz uvm_report_info, uvm_report_warning, uvm_report_error, uvm_report_fatal 
     Changing the verbosity of the message - We can pass +UVM_VERBOSITY=UVM_HIGH. THe default verbosity in UVM is UVM_MEDIUM. If we set verbosity
-    to UVM_LOW then all messages will get printed.
+    to UVM_DEBUG then all messages will get printed as UVM prints those messages which are having lower values than set UVM_VERBOSITY.
     There are 6 UVM Verbosity : there are UVM defined enum with values specified as below
     1. UVM_NONE - 0 
     2. UVM_LOW  - 100
