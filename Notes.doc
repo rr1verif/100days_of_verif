@@ -96,6 +96,8 @@ Also the get uses the string which was used at the time of set function to alloc
   uvm_config_db(virtual uvm_test_if)::set(null,"*", "uvm_test_if", uvm_test_if)
   uvm_config_db(virtaul uvm_test_if)::get(this,"","uvm_test_if",test_if);
   
+  Configuring an instance for a uvm_config_db can be done at run_time/dynamically.
+  
   Configurable Parameters
     Structure of a testbench – pre-runtime
     Number of agents, active/passive agent
@@ -103,3 +105,16 @@ Also the get uses the string which was used at the time of set function to alloc
     Stimulus for the test - Changed during runtime
     changing the verbosity of the messages
     constraint expression values, coverage bin values
+    
+    There are 4 reporting mechanism in UVM viz uvm_report_info, uvm_report_warning, uvm_report_error, uvm_report_fatal 
+    Changing the verbosity of the message - We can pass +UVM_VERBOSITY=UVM_HIGH. THe default verbosity in UVM is UVM_MEDIUM. If we set verbosity
+    to UVM_LOW then all messages will get printed.
+    There are 6 UVM Verbosity : there are UVM defined enum with values specified as below
+    1. UVM_NONE - 0 
+    2. UVM_LOW  - 100
+    3. UVM_MEDIUM - 200
+    4. UVM_HIGH   - 300
+    5. UVM_FULL   - 400
+    6. UVM_DEBUG  - 500 
+
+    If we want to change the verbosity of a particular component
