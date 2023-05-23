@@ -2,7 +2,10 @@ class mux_sequence #(mux_sequence_item) extends uvm_sequence;
   
   `uvm_component_utils(mux_sequence);
   
-  function void new()
+  //Check whether sequencer handle is a must or not
+  //`uvm_declare_p_sequencer(seqr);
+  
+  function void new(string name= "mux_sequence", uvm_component parent = null);
     super.new(name,parent);
   endfunction
   
