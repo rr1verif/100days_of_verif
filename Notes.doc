@@ -120,5 +120,7 @@ Also the get uses the string which was used at the time of set function to alloc
     If we want to change the verbosity of a particular component lets say an seqr in hm_agt which is inside the environment.
     env_o.host_vip_o.hm_seqr.set_report_verbosity_level(UVM_HIGH);
     
+    type override & component override examples :
+    
     So lets say we have few messages in hm_seqr with uvm_low and uvm_high. The if we would not have explicitly set the verbosity to 
     UVM_HIGH then only UVM_LOW messages would get printed but now both uvm_low and uvm_high messages will get printed.
