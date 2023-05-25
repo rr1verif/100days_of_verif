@@ -7,15 +7,17 @@ Also in the checker if I am defining some analysis import - then try to define i
 or packet is coming rather than explicitly checking in the env file.
 
 Q. When to use new and when to use create for new object creation ?
-Ans - 
+Ans - Create method is used for allowing uvm related in built functions to be used across that component. Whereas with new as well we can have memory allocated
+to a object/component but uvm in-builts/implementation would render invalid.
 
 Q. Can we connect ports & imports in build phase or should we do that only in connect phase?
-Ans -
+Ans - Ideally all the connection should be in connect phase and object/component initialisation be in build phase.
 
 Q. How to print UVM hirerachy of an object/component?
 Ans - print_topology()
 
 Q. What is the difference between tlm port - exports & analysis_port - imports? Explain the connection with example.
+Ans- TLM port doen't support 1 to many connection whereas analysis port does.
 
 Q. When to use uvm_sequence_item, uvm_object, uvm_transactions in UVM?
 Ans - 
