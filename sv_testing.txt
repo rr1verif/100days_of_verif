@@ -91,7 +91,7 @@ file input output handling in SV ->
         idx++;
       end //}
       $fclose(upd_file1)
-      //The above will print all the lines until it will get two matches of a line
+      //The above code regarding $fscanf will print all the lines until it will get two matches of a line
       
     end //}
   endmodule
