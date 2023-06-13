@@ -53,8 +53,8 @@ file input output handling in SV ->
    
    
    module file_file_io_test_top;
-    int upd_file, upd_file, upd_file2,i;
-    string first_line, line;
+    int upd_file, upd_file, upd_file2, i, idx;
+    string first_line, line, str;
     initial begin ; //{
       upd_file = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt", "w");
       for (int i = 0; i < 10; i++) begin //{
@@ -82,5 +82,16 @@ file input output handling in SV ->
         i++;
       end //}
       $fclose(upd_file2);
+      
+      //Code to find the matches - $fscanf
+      upd_file1 = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt","r+");
+      str = "Current iteration is";
+      while ($fscanf(upd_file1, "%s = %0d, str, idx) == 2) begin //{
+        $dispaly("Line: %s = %0d", str, idx);
+        idx++;
+      end //}
+      $fclose(upd_file1)
+      //The above will print all the lines until it will get two matches of a line
+      
     end //}
   endmodule
