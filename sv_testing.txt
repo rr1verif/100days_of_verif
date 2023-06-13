@@ -41,8 +41,7 @@ file input output handling in SV ->
     int readlines;
     initial begin ; //{
       readlines = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt", "r");
-    
-      fd.$fclose();
+      $fclose(readlines);
     end //}
   endmodule
   
@@ -51,3 +50,37 @@ file input output handling in SV ->
    2. readlines = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt", "a"); //to append lines in file
    3. readlines = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt", "r+"); 
    4. readlines = $fopen("../../read_this_file.txt", "w+"); //Here the currend working dir is /user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/tb/env
+   
+   
+   module file_file_io_test_top;
+    int upd_file, upd_file, upd_file2,i;
+    string first_line, line;
+    initial begin ; //{
+      upd_file = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt", "w");
+      for (int i = 0; i < 10; i++) begin //{
+        $fdisplay(upd_file, "Current iteration is %0d", i); //$fdisplay will overwrite the corresponding line in the file 
+      end //}
+      $fclose(upd_file);
+      
+      //Reading lines written into the file
+      upd_file1 = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt","r+");
+      $fgets(first_line, upd_file1);
+      $display(" First line is %s", first_line);
+      $fwrite(line, upd_file); //$fwrite is also used to add lines 
+      $display("Next line is %s", line);
+      for (int i = 0; i<3; i++) begin //{
+        $fgets(line, upd_file);
+        $display("(%0d+2)th line is %s", i, line);
+      end //}
+      $fclose(upd_file1);    
+      
+      //Code to read until end of line
+      upd_file2 = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt","r+");
+      while(!$feof(upd_file2) begin //{
+        $fgets(line,upd_file2);
+        $display("%0d th line is %s", i, line);
+        i++;
+      end //}
+      $fclose(upd_file2);
+    end //}
+  endmodule
