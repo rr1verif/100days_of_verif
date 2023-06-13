@@ -34,3 +34,20 @@ The initial state of reg is x unknown, wire is z.
 to define a variable of type time
 time t;
 t = $realtime(); //to assign the simulation time to variable
+
+
+file input output handling in SV ->
+  module file_tb_test_top;
+    int readlines;
+    initial begin ; //{
+      readlines = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt", "r");
+    
+      fd.$fclose();
+    end //}
+  endmodule
+  
+  Other applicable file handling codes in SV :
+   1. readlines = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt", "w"); // to overwrite the file
+   2. readlines = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt", "a"); //to append lines in file
+   3. readlines = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt", "r+"); 
+   4. readlines = $fopen("../../read_this_file.txt", "w+"); //Here the currend working dir is /user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/tb/env
