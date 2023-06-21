@@ -49,7 +49,7 @@ file input output handling in SV ->
    1. readlines = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt", "w"); // to overwrite the file
    2. readlines = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt", "a"); //to append lines in file
    3. readlines = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt", "r+"); 
-   4. readlines = $fopen("../../read_this_file.txt", "w+"); //Here the currend working dir is /user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/tb/env
+   4. readlines = $fopen("../../read_this_file.txt", "w+"); //Here the current working dir is /user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/tb/env
    
    
    module file_file_io_test_top;
@@ -66,7 +66,8 @@ file input output handling in SV ->
       upd_file1 = $fopen("/user/ssirpresto1/VERIFY/users/r.rishu/new/unit_file/read_this_file.txt","r+");
       $fgets(first_line, upd_file1);
       $display(" First line is %s", first_line);
-      $fwrite(line, upd_file); //$fwrite is also used to add lines 
+      $fwrite(first_line, upd_file); //$fwrite is also used to add lines 
+      $fgets(line,upd_file);
       $display("Next line is %s", line);
       for (int i = 0; i<3; i++) begin //{
         $fgets(line, upd_file);
@@ -95,3 +96,30 @@ file input output handling in SV ->
       
     end //}
   endmodule
+  
+  Exception handling in SV ->
+                     class fatal_err_demoter extends uvm_report_catcher;
+                       static int demoted_message_count;
+                       bit err_demoted;
+                       
+                       `uvm_object_utils(fatal_err_domter)
+                       
+                       function void new(string name = "fatal_error_demoter" );
+                         super.new(name);
+                       endfunction 
+                       
+                       function action_e catch(); //{
+                         if((get_severity() == UVM_FATAL) && (get_message() == "UVM_ERROR : Invalid address from scoreboard")) begin //{
+                           set_severity(UVM_INFO);
+                           err_demoted = 1;
+                           demoted_message_count++;
+                         end //}
+                         return THROW;
+                       endfunction: catch//}
+                     endclass
+                     
+                     virtual function void build_phase(uvm_phase phase); //{
+                       super.build_phase(phase);
+                       uvm_report_cb::add(uvm_test_top.env_o.host_vip_o.axi_monitor. demoter);
+                                          //uvm_report_cb::add_by_name("cdnaxiuvmusermonitor",demoter); -> This could be used in case exxact hierarchy is not known to the user
+                     endfunction //}
