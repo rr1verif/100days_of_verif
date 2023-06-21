@@ -35,6 +35,19 @@ to define a variable of type time
 time t;
 t = $realtime(); //to assign the simulation time to variable
 
+//Functional Coverage
+covergroup e2e_nsr_parity @(posedge clk);
+  wdata_parity_error_nsr : coverpoint fw_cfg.e2e_wdata_parity_err_nsr;
+endgroup
+
+e2e_nsr_parity e2e_nsr_parity_inst = new;
+
+initial begin //{
+  e2e_nsr_parity.sample();
+end //}
+
+
+//Events
 
 file input output handling in SV ->
   module file_tb_test_top;
@@ -123,3 +136,7 @@ file input output handling in SV ->
                        uvm_report_cb::add(uvm_test_top.env_o.host_vip_o.axi_monitor. demoter);
                                           //uvm_report_cb::add_by_name("cdnaxiuvmusermonitor",demoter); -> This could be used in case exxact hierarchy is not known to the user
                      endfunction //}
+                     
+     //DPI constructs in System Verilog ->
+         dvfv
+         dvf
