@@ -10,6 +10,12 @@
 10. casting & :: operator
 
 
+Q: Let say 3 fork join_any is there in a particular testcase. Can we make sure only one of the particular fork join 
+is disabled rather than all three as is the case when using disable fork. 
+
+Q: What is global_asynchronous_reset?
+
+Q: When to use RAM and when to use FIFO in a design?
 
 class test_1;
   rand bit[2:0] x;
