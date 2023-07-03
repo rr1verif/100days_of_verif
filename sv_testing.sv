@@ -17,6 +17,8 @@ Q: What is global_asynchronous_reset?
 
 Q: When to use RAM and when to use FIFO in a design?
 
+Q: Why SSD is preffered over harddrives & what are the 3P's of SSD?
+
 class test_1;
   rand bit[2:0] x;
   randc bit[2:0] y;
