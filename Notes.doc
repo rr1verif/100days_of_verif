@@ -16,6 +16,21 @@ Ans - Ideally all the connection should be in connect phase and object/component
 Q. How to print UVM hirerachy of an object/component?
 Ans - print_topology()
 
+Q. What is the general topology of uvm classes ?
+Ans -                                       uvm_void
+                                                |
+                                            uvm_object
+                                                |
+                                          uvm_report_object
+                                       /                    \
+                 uvm_seqr - uvm_component - uvm_test          uvm_transaction
+                          /    |     |     \                         |
+  uvm_scoreboard & uvm_mon uvm_agnt uvm_env  uvm_driver       uvm_sequence_item
+                                                                     |
+                                                               uvm_sequence_base
+                                                                     |
+                                                               uvm_sequence
+
 Q. What is the difference between tlm port - exports & analysis_port - imports? Explain the connection with example.
 Ans- TLM port doen't support 1 to many connection whereas analysis port does.
 
@@ -69,6 +84,10 @@ design team & verif team. Atleast common, vimrc file should be there for common 
   For Objects -
     Starting_phase.raise_objection(this);
     Starting_phase.drop_objection(this);
+  When a sequence has started, always raise a flag/objection to let the testbench know that it's still active. This flag/objection should be 
+  lowered when the sequence finishes so that testbench can finish the simulation and exit gracefully. If the flag is not raised, then there are chances that 
+  some other component in the testbench call a simulation exit and the sequence will be exited abruptly. You may also place it in the body() task.
+
   A task is time consuming whereas a function gets executed in 0 time
   
   What is phase domains or jumping - With the use of phase domain, each component can complete independent of other components. No synchronization is required.
