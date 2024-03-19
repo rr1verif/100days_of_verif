@@ -1,0 +1,29 @@
+So lets say we have a valid signal as an output from rtl
+And we need to drive ready signal from the TB and capture the payload.
+How should we proceed given that we have reusable components for this valid-ready handshake?
+
+Below are the re-usable components -
+  1. valid_ready interface
+  2. valid_ready agent
+  3. valid_ready driver
+  4. valid_ready cfg
+  5. valid_ready seq
+  6. valid_ready seqr
+  7. valid_ready monitor
+
+** Later add info on how to re-use coverage component & scoreboard ** 
+
+
+  -- Thought process 
+  So we should consider a top-down approach for making connection. So we will
+  see the rtl signals first. The rtl signals need to driven from an interface.
+  The virtual interface would be driven from a driver. This driver would be a 
+  part of an agent. The agent would have a particular CFG which characterize
+  its env. Also the driver needs a seq and seqr. Ready value would be driven 
+  from this seq. The agent will have driver, seqr and a monitor. This monitor
+  will be re-used to check the validity of the protocol & signals.
+
+
+  -- Steps
+   a.  We need to connect the corresponding valid, payload & ready signal from rtl 
+to that 
