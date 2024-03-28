@@ -1,0 +1,30 @@
+1 . 
+class parent;
+  int x;
+  
+  function new();
+    x = 20;
+    $display("x is %0d",x);
+  endfunction
+  
+endclass
+
+class child extends parent;
+  int x, y;
+  
+  function new();
+    super.new();
+    x = 10;
+    y = 10;
+    $display("x is %0d, y is %0d", x, y);
+  endfunction
+endclass
+
+module tb_top();
+  child c1;
+  initial begin //{
+    c1 = new();
+  end //}
+endmodule
+
+Ans -
