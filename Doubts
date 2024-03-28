@@ -1,3 +1,6 @@
 // This file contains doubts about SV, UVM and Verification in general !!
 
 1. Can we override a macro ? Lets say we have a macro defined earlier can we have it redefined differently in a new space?
+
+
+2. When to use typedef of class type instead of create as we already have the correpsonding class?
