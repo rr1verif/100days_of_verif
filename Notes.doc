@@ -146,3 +146,18 @@ Also the get uses the string which was used at the time of set function to alloc
     
     So lets say we have few messages in hm_seqr with uvm_low and uvm_high. The if we would not have explicitly set the verbosity to 
     UVM_HIGH then only UVM_LOW messages would get printed but now both uvm_low and uvm_high messages will get printed.
+
+UVM Factory - UVM Factory is mechanism to improve flexibility and scalability by allowing existing class object with any
+of its derived class or class object of same type. Following are few of the functions used for factory override -
+
+  a. set_type_override_by_type(original_type, override_type) //Update this & below lines
+  b. set_inst_override_by_name()
+  c.
+  d.
+As the name implies, uvm_factory is used to manufacture (create) UVM objects and components.  
+Only one instance of the factory is present in a given simulation (termed a singleton).  
+Object and component types are registered with the factory using lightweight proxies to the actual objects and components being created
+
+  Use case : UVM Factory is used for overriding instances or different types of objects.
+  uvm_factory factory = uvm_factory::get() // UVM Factory is a singleton class which means same
+  factory.print();                         // object/handle "fatory" should be used everywhere
