@@ -16,6 +16,8 @@ axi_seq seq2;
 seq1 = axi_seq::type_id::create("seq1");
 seq2 = new();
 
+Add an example for component handle creation - 
+
 Q. Can we connect ports & imports in build phase or should we do that only in connect phase?
 Ans - Ideally all the connection should be in connect phase and object/component initialisation be in build phase.
 
