@@ -9,6 +9,12 @@ or packet is coming rather than explicitly checking in the env file.
 Q. When to use new and when to use create for new object creation ?
 Ans - Create method is used for allowing uvm related in built functions to be used across that component. Whereas with new as well we can have memory allocated
 to a object/component but uvm in-builts/implementation would render invalid.
+Create & new example for a object of axi_seq -
+axi_seq seq1;
+axi_seq seq2;
+
+seq1 = axi_seq::type_id::create("seq1");
+seq2 = new();
 
 Q. Can we connect ports & imports in build phase or should we do that only in connect phase?
 Ans - Ideally all the connection should be in connect phase and object/component initialisation be in build phase.
