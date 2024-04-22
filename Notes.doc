@@ -170,7 +170,7 @@ Object and component types are registered with the factory using lightweight pro
   uvm_factory factory = uvm_factory::get() // UVM Factory is a singleton class which means same
   factory.print();                         // object/handle "fatory" should be used everywhere
 
-//Code to run basics
+//Text/Code to Simulation/Run Basics
 Compilation converts a set of human readable files into a form suitable for processing in another phase. This phase also processes included files, 
 conditional text, and text macros into a single stream of statements called a compilation unit. The compiler syntactically recognizes each statement 
 according to the BNF rules, but generates no useful executable code in this phase.
