@@ -169,3 +169,15 @@ Object and component types are registered with the factory using lightweight pro
   Use case : UVM Factory is used for overriding instances or different types of objects.
   uvm_factory factory = uvm_factory::get() // UVM Factory is a singleton class which means same
   factory.print();                         // object/handle "fatory" should be used everywhere
+
+//Code to run basics
+Compilation converts a set of human readable files into a form suitable for processing in another phase. This phase also processes included files, 
+conditional text, and text macros into a single stream of statements called a compilation unit. The compiler syntactically recognizes each statement 
+according to the BNF rules, but generates no useful executable code in this phase.
+
+Elaboration globally resolves all instantiations, propagating parameter values and types, and connecting ports. It allocates the space for 
+all static design units and objects. Elaboration resolves all hierarchical references, so that it can identify the data types involved in expressions,
+and it then generates code to evaluate each expression.
+
+Execution, or runtime, initializes all static objects and spawns all processes where procedural code exists. The simulation kernel controls the execution of all processes. 
+Now that we have defined these phases, let us look at the example below and see how the simulator interprets the various constant concepts.
