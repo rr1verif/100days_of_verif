@@ -181,3 +181,7 @@ and it then generates code to evaluate each expression.
 
 Execution, or runtime, initializes all static objects and spawns all processes where procedural code exists. The simulation kernel controls the execution of all processes. 
 Now that we have defined these phases, let us look at the example below and see how the simulator interprets the various constant concepts.
+
+
+If you are implementing a SystemVerilog/UVM class yourself, you could declare the class variables as protected and define access methods (getters and setters) to allow the user
+to access and modify them only if necessary. This ensures that the user cannot directly modify the internal variables, maintaining encapsulation and control over how these variables are accessed or modified.
